@@ -33,7 +33,7 @@ namespace Magellanic.Sensors.TMP102
             var leastSignificantByte = readBuffer[1];
 
             // this formula is from the data sheet.
-            // 1. Add the most significant and least significant bytes (using logical OR)
+            // 1. Add the most significant (multiplied by 256) and least significant bytes (using logical OR)
             // 2. Right shift the sum by 4 places (i.e. divide by 16)
             // 3. Multiply by 0.0625
             var bytesAddedTogether = mostSignificantByte << 8 | leastSignificantByte;
